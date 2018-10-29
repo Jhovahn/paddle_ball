@@ -8,6 +8,9 @@ function Paddle() {
 
   this.display = function() {
     rect(this.pos.x, this.pos.y, this.w, this.h);
+    let c = color(250, 45, 80);
+    fill(c);
+    noStroke();
   };
 
   this.move = function(step) {
@@ -16,7 +19,7 @@ function Paddle() {
 
   this.update = function() {
     if (this.isMovingRight) {
-      this.move(20);
+      this.move(35);
     } else if (this.isMovingLeft) {
       this.move(-20);
     }
