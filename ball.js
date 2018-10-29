@@ -1,7 +1,7 @@
 function Ball() {
   this.pos = createVector(width / 2, height / 2);
   this.r = 30;
-  this.direction = createVector(-1, -1);
+  this.direction = createVector(1, 1);
   this.vel = createVector(1, 1).mult(8);
 
   this.display = function() {
@@ -20,5 +20,16 @@ function Ball() {
     if (this.pos.x < this.r && this.direction.x < 0) this.direction.x *= -1;
     if (this.pos.x > width - this.r && this.direction.x > 0)
       this.direction.x *= -1;
+  };
+
+  this.meets = function(paddle) {
+    if (
+      this.pos.y < paddle.pos.y &&
+      this.pos.y > paddle.pos.y - this.r &&
+      this.pos.x > paddle.pos.x - this.r &&
+      this.pos.x < paddle.pos.x + paddle.w + this.r
+    ) {
+      return true;
+    } else return false;
   };
 }
