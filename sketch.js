@@ -1,8 +1,10 @@
 let paddle;
+let ball;
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
   paddle = new Paddle();
+  ball = new Ball();
 }
 
 function draw() {
@@ -10,6 +12,9 @@ function draw() {
   paddle.display();
   paddle.update(20);
   paddle.checkEdges();
+  ball.display();
+  ball.update();
+  ball.checkEdges();
 }
 
 function keyPressed() {
